@@ -1,4 +1,4 @@
-import json, requests, os
+import json, requests, os, sys
 from datetime import datetime, timedelta
 
 def get_json_for_team_id(team_id):
@@ -91,10 +91,10 @@ def write_games_to_ical_file(games):
 		write_ical_footer(file)
 
 def create_ical_for(team_id):
-	team_data = get_json_for_team_id(team_id)
+	team_data = get_json_for_team_id(team_id.replace(" ", "+"))
 	games = get_games_by_guid([d['guid'] for d in team_data])
 	write_games_to_ical_file(games)
 
 
 if (__name__ == "__main__"):
-	create_ical_for('BVBL1281HSE++2')
+	create_ical_for(sys.argv[1])
