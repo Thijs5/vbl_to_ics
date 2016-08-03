@@ -1,4 +1,4 @@
-# VBL to calendar script
+# VBL to iCalendar script
 
 ## Usage
     python vbl_to_calendar.py 'BVBL1281HSE  1'
